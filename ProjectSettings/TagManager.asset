@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Map
+  - Enemy
+  - VirtualStick
   layers:
   - Default
   - TransparentFX
@@ -39,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UILayer
+    uniqueID: 3867161185
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
