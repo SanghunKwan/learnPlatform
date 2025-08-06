@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.WSA;
 
 public class MainCharacter : MonoBehaviour
 {

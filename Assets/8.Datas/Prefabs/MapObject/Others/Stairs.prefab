@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6388343901744014072}
   - component: {fileID: 4852883584115489433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stairs
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -66,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: a3ad31a1d09c4064ca4b8044cb9f4018, type: 3}
       propertyPath: m_Name
       value: Stairs 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a3ad31a1d09c4064ca4b8044cb9f4018, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a3ad31a1d09c4064ca4b8044cb9f4018, type: 3}
       propertyPath: m_LocalScale.x

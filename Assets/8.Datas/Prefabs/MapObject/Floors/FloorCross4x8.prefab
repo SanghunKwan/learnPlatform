@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3020204244143789898}
   - component: {fileID: 7858605092933678720}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FloorCross4x8
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -65,6 +65,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 93351a52e63c3684eabc0cf4cd1c98cf, type: 3}
       propertyPath: m_Name
       value: Ground X Bright Flat 4x8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 93351a52e63c3684eabc0cf4cd1c98cf, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 93351a52e63c3684eabc0cf4cd1c98cf, type: 3}
       propertyPath: m_TagString

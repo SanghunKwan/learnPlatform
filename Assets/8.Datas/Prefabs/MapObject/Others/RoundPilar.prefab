@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6504099408497274079}
   - component: {fileID: 2000947759093554797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RoundPilar
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -67,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 65ce4d6909c7a774ca8008339abfbda1, type: 3}
       propertyPath: m_Name
       value: Round Pilar
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 65ce4d6909c7a774ca8008339abfbda1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 65ce4d6909c7a774ca8008339abfbda1, type: 3}
       propertyPath: m_LocalPosition.x

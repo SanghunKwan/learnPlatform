@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 45225432610336311}
   - component: {fileID: 2906386438956299402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fence
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -66,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4e3026b9dfd331f46845e745c49aebe3, type: 3}
       propertyPath: m_Name
       value: Platform Fence 1x7x7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4e3026b9dfd331f46845e745c49aebe3, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4e3026b9dfd331f46845e745c49aebe3, type: 3}
       propertyPath: m_LocalPosition.x

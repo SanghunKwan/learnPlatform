@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3765958908428702184}
   - component: {fileID: 6707236532020348089}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall2x1
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -65,6 +65,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4961bea18ef42d64292976a3bff3d066, type: 3}
       propertyPath: m_Name
       value: Wall Tile 2x1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4961bea18ef42d64292976a3bff3d066, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 4961bea18ef42d64292976a3bff3d066, type: 3}
       propertyPath: m_TagString

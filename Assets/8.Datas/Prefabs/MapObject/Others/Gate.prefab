@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8251283140096236844}
   - component: {fileID: 2542150284727148346}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gate
   m_TagString: Map
   m_Icon: {fileID: 0}
@@ -66,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: a7bf09e66f48b454494b6f1e2cd639cb, type: 3}
       propertyPath: m_Name
       value: Gate 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a7bf09e66f48b454494b6f1e2cd639cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7bf09e66f48b454494b6f1e2cd639cb, type: 3}
       propertyPath: m_LocalPosition.x
