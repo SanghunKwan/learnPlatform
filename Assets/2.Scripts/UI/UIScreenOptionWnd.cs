@@ -13,9 +13,9 @@ public class UIScreenOptionWnd : MonoBehaviour
     Resolution[] _availableResolutions;
     Resolution _currResolution;
 
-    int _selectResolutionIndex;
-
     List<int> _resolution2Available;
+
+    public static int _selectResolutionIndex { get; set; }
 
     public void OpenWnd()
     {
@@ -42,13 +42,18 @@ public class UIScreenOptionWnd : MonoBehaviour
 
         _resolution2Available = new List<int>(_optionDic.Count);
         List<string> optionList = new List<string>(_optionDic.Count);
-
+        int selectedIndex = 0;
         foreach (var item in _optionDic)
         {
             _resolution2Available.Add(item.Value);
             optionList.Add(item.Key);
+            if (item.Value == _selectResolutionIndex)
+            {
+                selectedIndex = optionList.Count - 1;
+            }
         }
         _resolutionList.AddOptions(optionList);
+        _resolutionList.SetValueWithoutNotify(selectedIndex);
     }
     string ResolutionDic(Resolution resolution)
     {
@@ -59,7 +64,7 @@ public class UIScreenOptionWnd : MonoBehaviour
         else
             return resolution.width + "X" + resolution.height;
     }
-    bool IsRateSameWithUI(Resolution resolution)
+    public static bool IsRateSameWithUI(Resolution resolution)
     {
         //가로의 경우 비율을 연산하기 때문에 모두 true.
         if (resolution.width > resolution.height)
@@ -76,6 +81,7 @@ public class UIScreenOptionWnd : MonoBehaviour
     {
         //해상도 적용.
         _currResolution = _availableResolutions[_resolution2Available[_resolutionList.value]];
+        _selectResolutionIndex = _resolution2Available[_resolutionList.value];
 
         Screen.SetResolution(_currResolution.width > _currResolution.height
                             ? GetHorizontalWidth(_currResolution) : _currResolution.width

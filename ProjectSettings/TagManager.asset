@@ -9,6 +9,7 @@ TagManager:
   - VirtualStick
   - UICamera
   - MiniMapCamera
+  - EnemyAttackZone
   layers:
   - Default
   - TransparentFX

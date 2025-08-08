@@ -53,7 +53,14 @@ public class MagicProjectile : MonoBehaviour
         }
         else if (other.CompareTag("Enemy"))
         {
-            Instantiate(_prefabTarget, transform.position, Quaternion.identity);
+            //이펙트 형성 지점 : 현재 이동 방향 반대 방향으로 center 축에서 radius만큼 떨어진 지점.
+            CapsuleCollider otherCapsule = other as CapsuleCollider;
+            other.GetComponent<EnemyCharacter>().Hit(_owner);
+
+            Vector3 effectPoint = new Vector3(other.transform.position.x, transform.position.y, other.transform.position.z)
+                                    - 1.2f * otherCapsule.radius * _rgbd3D.linearVelocity.normalized;
+
+            Instantiate(_prefabTarget, effectPoint, Quaternion.identity);
             Destroy(gameObject);
         }
 

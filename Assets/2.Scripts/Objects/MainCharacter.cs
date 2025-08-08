@@ -12,11 +12,8 @@ public class MainCharacter : MonoBehaviour
     Camera _myCam;
     VirtualStick _vStick;
 
-    //검사용 정보==
-    string _value;
-    string _value2;
-    //==
-
+    [SerializeField] int _Damage;
+    public int _damage => _Damage;
 
     //임시 ==
     private void Start()
@@ -119,12 +116,12 @@ public class MainCharacter : MonoBehaviour
     }
 
 
-    void OnGUI()
+    private void OnTriggerEnter(Collider other)
     {
-        GUIStyle st = new GUIStyle();
-        st.fontSize = 100;
-        GUI.Label(new Rect(10, 100, 200, 40), _value, st);
-        GUI.Label(new Rect(10, 200, 200, 40), _value2, st);
+        if (other.CompareTag("EnemyAttackZone"))
+        {
+            Debug.Log("공격당했다@!");
+        }
     }
 
 }

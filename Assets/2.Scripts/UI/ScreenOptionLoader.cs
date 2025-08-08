@@ -5,6 +5,7 @@ public class ScreenOptionLoader : MonoBehaviour
     [SerializeField] Vector2Int defaultScreenSize = new Vector2Int(540, 960);
 
     Resolution[] _availableResolutions;
+    bool _isSelected;
 
 
     private void Awake()
@@ -12,7 +13,7 @@ public class ScreenOptionLoader : MonoBehaviour
         _availableResolutions = Screen.resolutions;
 
         //해상도 배열에서 동일한 것을 찾음 => height 기준.
-        if (IsSameResolutionExist(Screen.width, Screen.height, out Resolution similarResolution))
+        if (IsSameResolutionExist(Screen.width, Screen.height, out int similarResolutionIndex))
         {
             //동일한 것 있음.
             //9:16
@@ -22,42 +23,39 @@ public class ScreenOptionLoader : MonoBehaviour
         {
             //동일한 것 없음.
             //default 혹은 default와 가장 가까운 것으로 screenSize 설정.
-            IsSameResolutionExist(defaultScreenSize.x, defaultScreenSize.y, out similarResolution);
-            Screen.SetResolution(UIScreenOptionWnd.GetHorizontalWidth(similarResolution), similarResolution.height, false);
+            IsSameResolutionExist(defaultScreenSize.x, defaultScreenSize.y, out similarResolutionIndex);
+            Resolution mostSimilarOne = _availableResolutions[similarResolutionIndex];
+            Screen.SetResolution(UIScreenOptionWnd.GetHorizontalWidth(mostSimilarOne), mostSimilarOne.height, false);
         }
-
-
-
-        //기본값 기준 => 540 : 960
-        //해당 값 존재하지 않으면 가장 유사한 값 사용.
-
-        //사용한 값 기록.
-
+        UIScreenOptionWnd._selectResolutionIndex = similarResolutionIndex;
     }
 
-    bool IsSameResolutionExist(int width, int height, out Resolution similarResolution)
+    bool IsSameResolutionExist(int width, int height, out int similarResolutionIndex)
     {
-        similarResolution = new Resolution { height = int.MaxValue };
-
+        int similarResolutionHeight = int.MaxValue;
+        similarResolutionIndex = 0;
         //동일한 것 찾기
-
-        
 
         for (int i = 0; i < _availableResolutions.Length; i++)
         {
             Resolution tempSolution = _availableResolutions[i];
+
             if (tempSolution.height != height)
             {
-                if (Mathf.Abs(similarResolution.height - height) > Mathf.Abs(tempSolution.height - height))
+                if (UIScreenOptionWnd.IsRateSameWithUI(tempSolution)
+                    && Mathf.Abs(similarResolutionHeight - height) > Mathf.Abs(tempSolution.height - height))
                 {
-                    similarResolution = tempSolution;
+                    similarResolutionHeight = tempSolution.height;
+                    similarResolutionIndex = i;
                 }
                 continue;
             }
 
-            if (width > height || tempSolution.width == width)
+            if (Screen.mainWindowDisplayInfo.width > Screen.mainWindowDisplayInfo.height
+                && UIScreenOptionWnd.GetHorizontalWidth(tempSolution) == width)
             {
-                similarResolution = tempSolution;
+                similarResolutionIndex = i;
+                _isSelected = true;
                 return true;
             }
         }
@@ -65,10 +63,10 @@ public class ScreenOptionLoader : MonoBehaviour
         return false;
     }
 
-
-
-    public void SaveScreenSize()
+    private void OnGUI()
     {
-
+        GUI.Box(new Rect(0, 0, 200, 200), Screen.width + ":" + Screen.height);
+        GUI.Box(new Rect(0, 200, 200, 200), _isSelected.ToString());
     }
+
 }
