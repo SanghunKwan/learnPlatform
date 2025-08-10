@@ -19,14 +19,6 @@ public class MiniMapBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     Camera _minimapCam;
 
-    //юс╫ц ==
-    private void Start()
-    {
-        InitMinimapBox();
-    }
-    //==
-
-
     private void Update()
     {
 #if UNITY_ANDROID
@@ -136,6 +128,12 @@ public class MiniMapBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         else
             ZoomOut2D();
     }
+
+    public void SetPosition(in Vector3 vec)
+    {
+        _minimapCam.transform.position = vec;
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         _isActive = true;

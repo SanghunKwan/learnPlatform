@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -15,12 +16,10 @@ public class MainCharacter : MonoBehaviour
     [SerializeField] int _Damage;
     public int _damage => _Damage;
 
-    //임시 ==
-    private void Start()
-    {
-        InitCharacter();
-    }
-    //==
+    public event Action OnHitEvent;
+
+
+
     private void Update()
     {
         float rotY = 0;
@@ -120,7 +119,9 @@ public class MainCharacter : MonoBehaviour
     {
         if (other.CompareTag("EnemyAttackZone"))
         {
-            Debug.Log("공격당했다@!");
+            OnHitEvent?.Invoke();
+            IngameManager._instance.AccumDamages(other.transform.parent.GetComponent<EnemyCharacter>()._Damage);
+
         }
     }
 

@@ -10,6 +10,7 @@ TagManager:
   - UICamera
   - MiniMapCamera
   - EnemyAttackZone
+  - Fireball
   layers:
   - Default
   - TransparentFX

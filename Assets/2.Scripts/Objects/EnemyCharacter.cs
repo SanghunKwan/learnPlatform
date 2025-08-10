@@ -10,6 +10,7 @@ public class EnemyCharacter : MonoBehaviour
     [SerializeField] int _maxHp;
     int _currentHp;
     [SerializeField] int _damage;
+    public int _Damage => _damage;
 
     static readonly int _aniStateHash = Animator.StringToHash("AniState");
 
@@ -162,6 +163,7 @@ public class EnemyCharacter : MonoBehaviour
         _agent.isStopped = true;
         _agent.enabled = false;
         GetComponent<Collider>().enabled = false;
+        transform.Find("MiniMapFlag").gameObject.SetActive(false);
 
         _currentHp = 0;
         _aniState = AniState.Dead;
@@ -186,6 +188,9 @@ public class EnemyCharacter : MonoBehaviour
 
         _agent.stoppingDistance = _attackRange;
 
+        _parentFactory.DetectPlayer(player);
+
+        transform.Find("DetectTrigger").gameObject.SetActive(false);
     }
 
 
