@@ -424,4 +424,4 @@ MonoBehaviour:
   _damage: 4
   _walkSpeed: 2
   _runSpeed: 4
-  _attackRange: 1
+  _attackRange: 1.5

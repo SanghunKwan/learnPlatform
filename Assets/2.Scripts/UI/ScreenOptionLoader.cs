@@ -5,7 +5,6 @@ public class ScreenOptionLoader : MonoBehaviour
     [SerializeField] Vector2Int defaultScreenSize = new Vector2Int(540, 960);
 
     Resolution[] _availableResolutions;
-    bool _isSelected;
 
 
     private void Awake()
@@ -55,7 +54,6 @@ public class ScreenOptionLoader : MonoBehaviour
                 && UIScreenOptionWnd.GetHorizontalWidth(tempSolution) == width)
             {
                 similarResolutionIndex = i;
-                _isSelected = true;
                 return true;
             }
         }
@@ -65,8 +63,7 @@ public class ScreenOptionLoader : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.Box(new Rect(0, 0, 200, 200), Screen.width + ":" + Screen.height);
-        GUI.Box(new Rect(0, 200, 200, 200), _isSelected.ToString());
+        GUI.Box(new Rect(0, 200, 200, 100), Screen.width + ":" + Screen.height);
     }
 
 }

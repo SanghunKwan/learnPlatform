@@ -172,6 +172,10 @@ PrefabInstance:
       propertyPath: _runSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2151089075004165248, guid: 98a8e57ae8b27cf44a93fa51960aab02, type: 3}
+      propertyPath: _attackRange
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2471768648109849881, guid: 98a8e57ae8b27cf44a93fa51960aab02, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
