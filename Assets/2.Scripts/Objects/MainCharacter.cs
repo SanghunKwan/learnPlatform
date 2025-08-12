@@ -60,8 +60,6 @@ public class MainCharacter : MonoBehaviour
 
             for (int i = 0; i < Input.touchCount; i++)
             {
-                _value = Input.GetTouch(i).fingerId.ToString();
-                _value2 = EventSystem.current.IsPointerOverGameObject(Input.GetTouch(i).fingerId).ToString();
                 if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(i).fingerId))
                 {
                     if (Input.GetTouch(i).phase == TouchPhase.Began)
