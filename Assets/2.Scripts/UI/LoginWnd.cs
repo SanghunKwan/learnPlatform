@@ -6,6 +6,7 @@ public class LoginWnd : MonoBehaviour
 
     [SerializeField] Button _btnInit;
     [SerializeField] Button _btnLogin;
+    [SerializeField] Button _btnLogout;
 
     [SerializeField] RawImage _myPic;
 
@@ -13,6 +14,7 @@ public class LoginWnd : MonoBehaviour
     {
         _btnInit.gameObject.SetActive(true);
         _btnLogin.gameObject.SetActive(false);
+        _btnLogout.gameObject.SetActive(false);
     }
     public void SettingInit()
     {
@@ -24,6 +26,7 @@ public class LoginWnd : MonoBehaviour
     {
         _btnInit.gameObject.SetActive(false);
         _btnLogin.gameObject.SetActive(false);
+        _btnLogout.gameObject.SetActive(true);
     }
 
     public void OnClickFacebookInitBtn()
@@ -34,5 +37,10 @@ public class LoginWnd : MonoBehaviour
     public void OnClickFacebookLogin()
     {
         FacebookManager._Instance.FacebookLogin();
+    }
+
+    public void OnClickFacebookLogout()
+    {
+        FacebookManager._Instance.FacebookLogOut();
     }
 }

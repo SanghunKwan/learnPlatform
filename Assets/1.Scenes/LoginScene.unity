@@ -280,6 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _btnInit: {fileID: 602493821}
   _btnLogin: {fileID: 2103089945}
+  _btnLogout: {fileID: 498162829}
   _myPic: {fileID: 0}
 --- !u!1 &79207788
 GameObject:
@@ -338,7 +339,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Facebook Login
+  m_text: Facebook Logout
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c9adb1f542a93ae489bacfeae21e8394, type: 2}
   m_sharedMaterial: {fileID: -8643439910342830561, guid: c9adb1f542a93ae489bacfeae21e8394, type: 2}
@@ -643,7 +644,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -80, y: -80}
-  m_SizeDelta: {x: 550, y: 100}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &498162829
 MonoBehaviour:
@@ -691,7 +692,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 76520986}
         m_TargetAssemblyTypeName: LoginWnd, Assembly-CSharp
-        m_MethodName: OnClickFacebookLogin
+        m_MethodName: OnClickFacebookLogout
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -714,7 +715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6509434, g: 0.61970454, b: 0.5311944, a: 1}
+  m_Color: {r: 0.5456997, g: 0.40005338, b: 0.5849056, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

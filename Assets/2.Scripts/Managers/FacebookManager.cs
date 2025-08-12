@@ -41,6 +41,7 @@ public class FacebookManager : MonoBehaviour
     public void FacebookLogOut()
     {
         FB.LogOut();
+        Debug.Log(AccessToken.CurrentAccessToken);
     }
 
     //페이스북 초기화 실행 후 결과시 호출 함수
