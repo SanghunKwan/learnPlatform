@@ -9,6 +9,7 @@ public class MainUIScreen : MonoBehaviour
     [SerializeField] UIShowProgress _showProgress;
     [SerializeField] UIShowProgress _showEliminate;
     [SerializeField] MiniMapBox _miniMapBox;
+    [SerializeField] UIInfoBox _infoBox;
     MainCharacter _player;
 
 
@@ -21,6 +22,12 @@ public class MainUIScreen : MonoBehaviour
         _showProgress.InitUI();
         _showEliminate.InitUI();
         _miniMapBox.InitMinimapBox();
+
+        GameObject tempInfo = GameObject.FindGameObjectWithTag("PlayerInfoObject");
+        _infoBox.InitBox(tempInfo.GetComponent<PlayerInfoObject>());
+
+        Destroy(tempInfo, 1);
+
     }
 
 

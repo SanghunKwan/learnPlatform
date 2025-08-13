@@ -11,6 +11,7 @@ TagManager:
   - MiniMapCamera
   - EnemyAttackZone
   - Fireball
+  - PlayerInfoObject
   layers:
   - Default
   - TransparentFX
