@@ -26,8 +26,19 @@ public class MainCharacter : MonoBehaviour
         float rotX = 0;
         float delta = Time.deltaTime;
 
-#if UNITY_ANDROID
+#if UNITY_EDITOR
+        rotY = Input.GetAxis("Horizontal");
+        rotX = Input.GetAxis("Vertical");
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                Ray ray = _myCam.ScreenPointToRay(Input.mousePosition);
+                Launch(ray);
+            }
+        }
+#elif UNITY_ANDROID
         {
 
             //Vector3 eulerAngle = transform.rotation.eulerAngles;
@@ -65,8 +76,8 @@ public class MainCharacter : MonoBehaviour
                     if (Input.GetTouch(i).phase == TouchPhase.Began)
                     {
                         Ray ray = _myCam.ScreenPointToRay(Input.GetTouch(i).position);
-                           Launch(ray);
-                        
+                        Launch(ray);
+
                     }
                 }
             }

@@ -8,6 +8,7 @@ namespace DefineStruct
     public struct PlayerInfo
     {
         public string _name;
+        public string _id;
         public int _records;
         public Texture2D _image;
     }

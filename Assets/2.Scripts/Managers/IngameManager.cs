@@ -1,6 +1,8 @@
 using DefineSDK;
-using System.Collections.Generic;
+using DefineStruct;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class IngameManager : MonoBehaviour
@@ -30,6 +32,7 @@ public class IngameManager : MonoBehaviour
     GameObject _factoriesParentObject;
 
     List<EnemyCharacter> _corpseList;
+    PlayerInfoObject _playerInfo;
 
     public MainCharacter _Player => _player;
 
@@ -43,7 +46,11 @@ public class IngameManager : MonoBehaviour
 
     public void Start()
     {
-        _mainUIScreen.InitUI();
+        GameObject infoObject = GameObject.FindGameObjectWithTag("PlayerInfoObject");
+        _playerInfo = infoObject.GetComponent<PlayerInfoObject>();
+        _mainUIScreen.InitUI(_playerInfo);
+        _killCount = _playerInfo._Info._records;
+
         _mainUIScreen.ActivateFadeEffect(false);
         _player.InitCharacter();
         _currentStageIndex = -1;
@@ -144,5 +151,32 @@ public class IngameManager : MonoBehaviour
     public void AccumDamages(int damage)
     {
         _accumulatedDamages += damage;
+    }
+
+    public void QuitGame()
+    {
+        PlayerRecordsPair newRecord = new PlayerRecordsPair(_playerInfo._Info._id, _killCount);
+
+        if (_playerInfo._playerRecordList.HasKey(_playerInfo._Info._id, out int index))
+        {
+            _playerInfo._playerRecordList._list[index] = newRecord;
+        }
+        else
+        {
+            _playerInfo._playerRecordList._list.Add(newRecord);
+        }
+
+        string jsonString = JsonUtility.ToJson(_playerInfo._playerRecordList);
+
+
+        using (StreamWriter sw = new StreamWriter(LoginWnd.recordPath))
+        {
+            sw.Write(jsonString);
+        }
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
     }
 }

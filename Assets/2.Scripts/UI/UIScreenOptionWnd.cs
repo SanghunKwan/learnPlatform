@@ -103,4 +103,9 @@ public class UIScreenOptionWnd : MonoBehaviour
     {
         Screen.SetResolution(720, 1280, false);
     }
+
+    public void ClickSaveQuit()
+    {
+        IngameManager._instance.QuitGame();
+    }
 }

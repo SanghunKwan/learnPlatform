@@ -5,11 +5,12 @@ public class PlayerInfoObject : MonoBehaviour
 {
     PlayerInfo info;
     public PlayerInfo _Info => info;
+    public PlayerRecordsList _playerRecordList { get; private set; }
 
-    public void SetRecord(int record)
+    public void SetRecord(in string id, int record)
     {
         info._records = record;
-        Debug.Log(record);
+        info._id = id;
     }
     public void SetName(in string nameStr)
     {
@@ -18,5 +19,9 @@ public class PlayerInfoObject : MonoBehaviour
     public void SetImage(in Texture2D texture)
     {
         info._image = texture;
+    }
+    public void SetList(in PlayerRecordsList list)
+    {
+        _playerRecordList = list;
     }
 }

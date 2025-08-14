@@ -14,7 +14,7 @@ public class MainUIScreen : MonoBehaviour
 
 
 
-    public void InitUI()
+    public void InitUI(PlayerInfoObject infoObject)
     {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<MainCharacter>();
 
@@ -23,10 +23,9 @@ public class MainUIScreen : MonoBehaviour
         _showEliminate.InitUI();
         _miniMapBox.InitMinimapBox();
 
-        GameObject tempInfo = GameObject.FindGameObjectWithTag("PlayerInfoObject");
-        _infoBox.InitBox(tempInfo.GetComponent<PlayerInfoObject>());
+        
+        _infoBox.InitBox(infoObject);
 
-        Destroy(tempInfo, 1);
 
     }
 

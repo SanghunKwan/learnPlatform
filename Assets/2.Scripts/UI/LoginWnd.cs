@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class LoginWnd : MonoBehaviour
 {
-    readonly string recordPath = Path.Combine(Application.streamingAssetsPath, "asdf.json");
+    public static readonly string recordPath = Path.Combine(Application.streamingAssetsPath, "asdf.json");
 
     [SerializeField] Button _btnInit;
     [SerializeField] Button _btnLogin;
@@ -87,6 +87,11 @@ public class LoginWnd : MonoBehaviour
 
         return 0;
     }
+    public void HandOverRecordsList(PlayerInfoObject playerInfoObject)
+    {
+        playerInfoObject.SetList(_recordsList);
+    }
+
 
     public void OnClickFacebookInitBtn()
     {

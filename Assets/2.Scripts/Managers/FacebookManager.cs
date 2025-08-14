@@ -118,9 +118,10 @@ public class FacebookManager : MonoBehaviour
         {
             string tempStr = userInfo["id"].ToString();
             _uiLogInMain.SetUserID(tempStr);
-            _playerInfoObject.SetRecord(_uiLogInMain.GetRecord(tempStr));
-
+            _playerInfoObject.SetRecord(tempStr, _uiLogInMain.GetRecord(tempStr));
         }
+
+        _uiLogInMain.HandOverRecordsList(_playerInfoObject);
 
     }
 
